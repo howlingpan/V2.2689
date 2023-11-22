@@ -22,6 +22,10 @@ trusted_clients =
 	FE80::/10
 	::1/128
 
+[spoolman]
+server = http://172.16.0.226:7912
+sync_rate = 5
+
 [octoprint_compat]
 
 [history]
@@ -37,7 +41,7 @@ path = ~/mainsail
 
 [wled lights]
 type = http
-address = 172.18.196.37
+address = 172.16.0.234
 initial_preset = 3
 initial_red = 0.7
 initial_green = 0.7
@@ -76,4 +80,26 @@ origin = https://github.com/anonoei/klipper_auto_tap.git
 primary_branch = main
 install_script = install.sh
 managed_services = klipper
+
+[update_manager octoeverywhere]
+type = git_repo
+channel = beta
+path = /home/biqu/octoeverywhere
+origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
+env = /home/biqu/octoeverywhere-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	octoeverywhere
+
+[announcements]
+subscriptions = 
+	octoeverywhere
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
 

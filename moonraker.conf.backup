@@ -29,13 +29,6 @@ trusted_clients:
     FE80::/10
     ::1/128
 
-[spoolman]
-server: http://172.16.0.226:7912
-#   URL to the Spoolman instance. This parameter must be provided.
-sync_rate: 5
-#   The interval, in seconds, between sync requests with the
-#   Spoolman server.  The default is 5.
-
 # enables partial support of Octoprint API
 [octoprint_compat]
 
@@ -86,7 +79,7 @@ path: ~/mainsail
 
 [wled lights]
 type: http
-address: 172.16.0.234
+address: 172.18.196.37
 initial_preset: 3
 initial_red: 0.7
 initial_green: 0.7
@@ -127,11 +120,3 @@ install_script: install.sh
 managed_services: klipper
 
 [include octoeverywhere-system.cfg]
-
-# Crowsnest update_manager entry
-[update_manager crowsnest]
-type: git_repo
-path: ~/crowsnest
-origin: https://github.com/mainsail-crew/crowsnest.git
-managed_services: crowsnest
-install_script: tools/pkglist.sh
